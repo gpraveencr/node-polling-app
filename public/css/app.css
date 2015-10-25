@@ -1,0 +1,15 @@
+
+
+.hero-unit {
+    position: relative;
+    padding: 30px 45px;
+    color: #F5F5F5;
+    text-align: center;
+    text-shadow: 0 3px 0 rgba(0,0,0,.1);
+    background: #78BB5C;
+}
+
+.signup {
+    position: relative;
+    padding: 10px;
+}

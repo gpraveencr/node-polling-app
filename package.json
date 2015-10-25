@@ -1,0 +1,13 @@
+{
+  "name": "node-polling-app",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.14.1",
+    "consolidate": "^0.13.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.11",
+    "morgan": "^1.6.1",
+    "mustache": "^2.2.0"
+  }
+}
