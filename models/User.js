@@ -6,15 +6,19 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bcrypt = require('bcrypt-nodejs');
 
+//var Polls = new Schema({
+//    name : {type : String, required : true},
+//    options : {type : Array, required : false}
+//});
+
 var UserSchema = new Schema({
     fullname : {type : String, required : true},
     email : {type : String, required : true, unique : true},
     password : {type : String, required : true},
-    //polls : {type : Array, required : false}
-    polls : {
-            name : {type : String, required : true},
-            options : {type : Array, required : false}
-           }
+    polls : [{
+                name : {type : String, required : true},
+                options : {type : Array, required : false}
+            }]
 });
 
 module.exports = mongoose.model('User', UserSchema);

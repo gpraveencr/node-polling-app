@@ -89,23 +89,26 @@ apiRouter.route('/users/:user_id/polls')
         });
     })
     .post(function(req, res) {
-        User.findById(req.params.user_id, function(err, user) {
-            if(err) {
-                res.send(err);
-            }
-
-            if(req.body.name) user.polls.name = req.body.name;
-            if(req.body.options) user.polls.options = req.body.options;
-
-            user.save(function(err) {
-               if(err) {
-                   res.send(err);
-               }
-                res.send({message : 'Polls created successfully!'});
+        User.findByIdAndUpdate(req.params.user_id,
+            {$push: {"polls" : req.body.polls}},
+            {safe : true, upsert : true},
+            function(err, user) {
+                if(err) {
+                    res.send(err);
+                }
+                res.json(user);
             });
-
-            res.json(user.polls);
-        });
+    })
+    .delete(function(req, res) {
+        User.findByIdAndUpdate(req.params.user_id,
+            {$pop: {"polls" : req.body.polls}},
+            {safe : true, upsert : true},
+            function(err, user) {
+                if(err) {
+                    res.send(err);
+                }
+                res.json(user);
+            });
     })
 
 app.set('view engine', 'html');
