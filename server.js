@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 var apiRouter = express.Router();
 
 apiRouter.get('/', function(req, res) {
-    console.log('Requet is in API page.');
+    console.log('Request is in API page.');
     next();
 });
 
