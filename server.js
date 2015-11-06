@@ -11,7 +11,7 @@ var engines = require('consolidate');
 app.set('views', __dirname + '/public');
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
-mongoose.connect('mongodb://localhost:27017/polling');
+// mongoose.connect('mongodb://localhost:27017/polling');
 
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
