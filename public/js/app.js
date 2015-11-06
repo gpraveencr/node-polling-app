@@ -18,18 +18,25 @@ pollingApp.controller('SignUpController', function($http, $location) {
     signUp.user = {};
     signUp.message = 'Request is in SignupController';
 
-    signUp.submit = function() {
+    signUp.facebook = function() {
         console.log(signUp.user);
 
-        $http.post('api/users', signUp.user)
-            .success(function(data) {
-                console.log("POST Response: " + data.message);
-                signUp.message = data.message;
-                $location.path('/polls');
+        FB.login(function(response) {
+            if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', function(response) {
+                    console.log('Good to see you, ' + response.name + '.');
+                    console.log(response);
+                    signUp.user.fullname = response.name;
+                    $location.path('/polls');
+                });
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
         });
-
-        signUp.user = {};
     };
+
+
 
     });
 

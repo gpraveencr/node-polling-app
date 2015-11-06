@@ -2,25 +2,40 @@
 <div></div>
 <div class="help-block with-errors"> {{ signUpCtrl.message }}</div>
 
-<div id="signUp" class="signup">
-    <form role="signupform" ng-submit="signUpCtrl.submit()" data-toggle="validator">
-        <div class="form-group">
-            <label for="name">Full Name:</label>
-            <input type="text" class="form-control" id="name" ng-model="signUpCtrl.user.fullname" placeholder="Praveen Gangasani" required>
-            <div class="help-block with-errors"></div>
-        </div>
-        <div class="form-group">
-            <label for="email">Email address:</label>
-            <input type="email" class="form-control" id="email" ng-model="signUpCtrl.user.email" placeholder="pg@pg.org" required>
-        </div>
-        <div class="form-group">
-            <label for="pwd">Password:</label>
-            <input type="password" class="form-control" ng-model="signUpCtrl.user.password" id="pwd" required>
-        </div>
-        <div class="form-group">
-            <input type="submit" class="btn btn-success" value="Sign up"/>
-        </div>
+<div class="text-center">
+    <form ng-submit="signUpCtrl.facebook()">
+        <button class="btn btn-lg btn-block btn-facebook btn-social">
+            <i class="fa fa-facebook"></i> Sign in with Facebook
+        </button>
+    </form>
 
+    <form ng-submit="signUpCtrl.github()">
+        <button class="btn btn-lg btn-block btn-github btn-social">
+            <i class="fa fa-github"></i> Sign in with Github
+        </button>
     </form>
 </div>
+
+
+<!--<div id="signUp" class="signup">-->
+    <!--<form role="signupform" ng-submit="signUpCtrl.submit()" data-toggle="validator">-->
+        <!--<div class="form-group">-->
+            <!--<label for="name">Full Name:</label>-->
+            <!--<input type="text" class="form-control" id="name" ng-model="signUpCtrl.user.fullname" placeholder="Praveen Gangasani" required>-->
+            <!--<div class="help-block with-errors"></div>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="email">Email address:</label>-->
+            <!--<input type="email" class="form-control" id="email" ng-model="signUpCtrl.user.email" placeholder="pg@pg.org" required>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="pwd">Password:</label>-->
+            <!--<input type="password" class="form-control" ng-model="signUpCtrl.user.password" id="pwd" required>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<input type="submit" class="btn btn-success" value="Sign up"/>-->
+        <!--</div>-->
+
+    <!--</form>-->
+<!--</div>-->
 
